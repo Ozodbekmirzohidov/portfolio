@@ -1,0 +1,152 @@
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const socialLinks = [
+  {
+    href: "https://t.me/mirzohidov_1",
+    label: "Telegram",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://instagram.com/1.mirzohidvc",
+    label: "Instagram",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://github.com/Ozodbekmirzohidov",
+    label: "Github",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://youtube.com/@Ozodbek.5",
+    label: "Youtube",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+      </svg>
+    ),
+  },
+];
+
+export function ProfileCard() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("ozodbek.mirzohidov@icloud.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="sticky top-[104px] bg-white rounded-2xl border border-white/80 overflow-hidden shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-fit">
+      {/* Image */}
+      <div className="h-[340px]">
+        <Image
+          src="/assets/img/profile.png"
+          alt="Profile"
+          width={400}
+          height={340}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Text */}
+      <div className="px-6 pt-4 pb-6">
+        <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+          Ozodbek Mirzohidov 👋
+        </h3>
+        <p className="text-base font-semibold text-gray-500 leading-6 mb-2">
+          Passionate{" "}
+          <span className="font-bold text-gray-900">Front-end Developer</span>{" "}
+          🖥️ specializing in building modern, responsive, and user-friendly web
+          applications.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex gap-2.5 mt-4">
+          <Link
+            href="https://t.me/mirzohidov_1"
+            target="_blank"
+            className="flex items-center gap-1.5 bg-indigo-500 text-white px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-indigo-600 transition-all no-underline"
+          >
+            <svg width="20" height="20" viewBox="0 0 25 24" fill="none">
+              <path
+                d="M5.5 4H9.5L11.5 9L9 10.5C10.071 12.6715 11.8285 14.429 14 15.5L15.5 13L20.5 15V19C20.5 19.5304 20.2893 20.0391 19.9142 20.4142C19.5391 20.7893 19.0304 21 18.5 21C14.5993 20.763 10.9202 19.1065 8.15683 16.3432C5.3935 13.5798 3.73705 9.90074 3.5 6C3.5 5.46957 3.71071 4.96086 4.08579 4.58579C4.46086 4.21071 4.96957 4 5.5 4Z"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M15.5 7C16.0304 7 16.5391 7.21071 16.9142 7.58579C17.2893 7.96086 17.5 8.46957 17.5 9"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M15.5 3C17.0913 3 18.6174 3.63214 19.7426 4.75736C20.8679 5.88258 21.5 7.4087 21.5 9"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Book A call
+          </Link>
+          <button
+            onClick={handleCopy}
+            className="flex items-center gap-1.5 bg-transparent text-gray-900 border border-gray-400 px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-gray-100 transition-all cursor-pointer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H18C18.5304 8 19.0391 8.21071 19.4142 8.58579C19.7893 8.96086 20 9.46957 20 10V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H10C9.46957 20 8.96086 19.7893 8.58579 19.4142C8.21071 19.0391 8 18.5304 8 18V10Z"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="currentColor"
+              />
+              <path
+                d="M16 8V6C16 5.46957 15.7893 4.96086 15.4142 4.58579C15.0391 4.21071 14.5304 4 14 4H6C5.46957 4 4.96086 4.21071 4.58579 4.58579C4.21071 4.96086 4 5.46957 4 6V14C4 14.5304 4.21071 15.0391 4.58579 15.4142C4.96086 15.7893 5.46957 16 6 16H8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="currentColor"
+              />
+            </svg>
+            {copied ? "Copied!" : "Copy Email"}
+          </button>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-2.5 mt-4">
+          {socialLinks.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              aria-label={s.label}
+              className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 no-underline hover:text-indigo-500 hover:border-indigo-500 transition-all"
+            >
+              {s.icon}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
