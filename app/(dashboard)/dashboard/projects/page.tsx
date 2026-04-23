@@ -1,23 +1,56 @@
+"use client";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { IProject } from "@/types";
+import { ProjectModal } from "@/components/dashboard/ProjectModal";
 
-async function getProjects() {
-  const { data } = await supabase
-    .from("projects")
-    .select("*")
-    .order("order_index");
-  return data as IProject[];
-}
+export default function ProjectsPage() {
+  const [projects, setProjects] = useState<IProject[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selected, setSelected] = useState<IProject | undefined>();
 
-export default async function ProjectsPage() {
-  const projects = await getProjects();
+  const fetchProjects = useCallback(async () => {
+    const { data } = await supabase
+      .from("projects")
+      .select("*")
+      .order("order_index");
+    setProjects(data as IProject[]);
+  }, []);
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("O'chirishni tasdiqlaysizmi?")) return;
+    await supabase.from("projects").delete().eq("id", id);
+    fetchProjects();
+  };
+
+  const handleEdit = (project: IProject) => {
+    setSelected(project);
+    setModalOpen(true);
+  };
+
+  const handleAdd = () => {
+    setSelected(undefined);
+    setModalOpen(true);
+  };
+
+  const handleSuccess = () => {
+    setModalOpen(false);
+    fetchProjects();
+  };
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-(--foreground)">Projects</h1>
-        <button className="px-4 py-2 rounded-lg bg-(--primary) text-white text-sm font-medium hover:opacity-90 transition cursor-pointer">
+        <button
+          onClick={handleAdd}
+          className="px-4 py-2 rounded-lg bg-(--primary) text-white text-sm font-medium hover:opacity-90 transition cursor-pointer"
+        >
           + Add Project
         </button>
       </div>
@@ -73,10 +106,16 @@ export default async function ProjectsPage() {
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2">
-                    <button className="px-3 py-1 rounded-lg text-xs bg-(--border) text-(--foreground) hover:opacity-80 transition cursor-pointer">
+                    <button
+                      onClick={() => handleEdit(project)}
+                      className="px-3 py-1 rounded-lg text-xs bg-(--border) text-(--foreground) hover:opacity-80 transition cursor-pointer"
+                    >
                       Edit
                     </button>
-                    <button className="px-3 py-1 rounded-lg text-xs bg-red-500/10 text-red-400 hover:opacity-80 transition cursor-pointer">
+                    <button
+                      onClick={() => handleDelete(project.id)}
+                      className="px-3 py-1 rounded-lg text-xs bg-red-500/10 text-red-400 hover:opacity-80 transition cursor-pointer"
+                    >
                       Delete
                     </button>
                   </div>
@@ -86,6 +125,14 @@ export default async function ProjectsPage() {
           </tbody>
         </table>
       </div>
+
+      {modalOpen && (
+        <ProjectModal
+          project={selected}
+          onClose={() => setModalOpen(false)}
+          onSuccess={handleSuccess}
+        />
+      )}
     </div>
   );
 }
