@@ -284,7 +284,7 @@ export function Navbar() {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-[1000] flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-1000 flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="mb-8">
           <Link
@@ -352,7 +352,7 @@ export function Navbar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[999]"
+          className="fixed inset-0 bg-black/50 z-999"
           onClick={() => setIsOpen(false)}
         />
       )}
