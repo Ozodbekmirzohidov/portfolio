@@ -190,9 +190,9 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-99 px-4">
-      <nav className="max-w-[1300px] mx-auto">
-        <div className="flex items-center justify-between bg-white rounded-2xl px-6 py-2 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)]">
+    <header className="w-full sticky top-0 z-99">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="flex items-center justify-between bg-white rounded-2xl px-6 py-3 shadow-[0_1px_10px_0px_rgba(26,31,44,0.25)]">
           {/* Logo */}
           <Link
             href="/"
@@ -204,7 +204,7 @@ export function Navbar() {
                 fill="currentColor"
               />
             </svg>
-            <span>Ali</span>
+            <span>Nex</span>
             <span className="text-indigo-500">Folio</span>
           </Link>
 
@@ -280,7 +280,7 @@ export function Navbar() {
             </button>
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Mobile Sidebar */}
       <div
@@ -359,3 +359,6 @@ export function Navbar() {
     </header>
   );
 }
+
+
+

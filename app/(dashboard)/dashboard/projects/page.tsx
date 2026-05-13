@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IProject } from "@/types";
 import { ProjectModal } from "@/components/dashboard/ProjectModal";
 
 export default function ProjectsPage() {
+  const supabase = createClient();
+
   const [projects, setProjects] = useState<IProject[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selected, setSelected] = useState<IProject | undefined>();

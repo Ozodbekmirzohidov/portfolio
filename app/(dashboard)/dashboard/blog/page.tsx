@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IBlog } from "@/types";
 import { BlogModal } from "@/components/dashboard/BlogModal";
 
 export default function BlogPage() {
+  const supabase = createClient();
+
   const [blogs, setBlogs] = useState<IBlog[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selected, setSelected] = useState<IBlog | undefined>();

@@ -1,10 +1,11 @@
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 import { ProfileCard } from "@/components/public/ProfileCard";
 import { WorkExperience } from "@/components/public/WorkExperience";
 import { ExpertArea } from "@/components/public/ExpertArea";
 import { RecentProjects } from "@/components/public/RecentProjects";
 
 async function getData() {
+   const supabase = await createClient();
   const [{ data: experiences }, { data: skills }, { data: projects }] =
     await Promise.all([
       supabase.from("experiences").select("*").order("order_index"),

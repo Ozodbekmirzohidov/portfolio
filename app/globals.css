@@ -3,8 +3,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -42,7 +40,37 @@ body {
   overflow-x: hidden;
 }
 
+@theme {
+  --animate-pulse-dot: pulseDot 1.5s infinite;
+  --animate-marquee-slide: marqueeSlide 16s linear infinite;
+  --animate-marquee: marquee 12s linear infinite;
+}
+ 
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
+}
+ 
+@keyframes marqueeSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+ 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

@@ -1,0 +1,152 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ProfileCard } from "@/components/public/ProfileCard";
+import { getSkills } from "@/lib/supabase/cached-queries";
+
+export async function AboutContent() {
+  const skills = await getSkills();
+
+  return (
+    <section className="py-10 px-4 pb-8">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
+          <div className="w-full">
+            <ProfileCard />
+          </div>
+
+          <div className="w-full h-full">
+            <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
+              <div className="px-10 pt-12 pb-10">
+                {/* Top info */}
+                <div className="flex items-start justify-between gap-5 mb-12 flex-col sm:flex-row">
+                  <div className="w-full max-w-[540px]">
+                    <h1 className="text-[40px] font-bold text-gray-900 mb-6 leading-[1.3]">
+                      Hi, This Is{" "}
+                      <span className="text-indigo-500">
+                        Ozodbek Mirzohidov
+                      </span>{" "}
+                      👋
+                    </h1>
+                    <p className="max-w-[460px] text-2xl font-medium text-gray-500 leading-[1.33]">
+                      Passionate{" "}
+                      <span className="font-bold text-gray-900">
+                        Front-end Developer
+                      </span>{" "}
+                      🖥️ specializing in building modern, responsive, and
+                      user-friendly web applications.
+                    </p>
+                  </div>
+                  <div className="shrink-0">
+                    <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#f0f2f5] border border-[#dbdfe5] text-lg font-medium text-indigo-500 whitespace-nowrap shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+                      <i className="not-italic w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse-dot" />
+                      Available For Hire
+                    </span>
+                  </div>
+                </div>
+
+                {/* Counter + Circle */}
+                <div className="flex items-center justify-between mb-[50px] pb-5 border-b border-[#dbdfe5]">
+                  <div className="flex gap-10">
+                    <div>
+                      <h3 className="text-[40px] font-semibold text-gray-900 mb-1">
+                        4+
+                      </h3>
+                      <p className="text-base text-gray-500">
+                        Year of Experience
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="text-[40px] font-semibold text-gray-900 mb-1">
+                        30+
+                      </h3>
+                      <p className="text-base text-gray-500">
+                        Project Completed
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative w-[110px] h-[110px] flex items-center justify-center">
+                    <Image
+                      src="/assets/img/about-us/circle-text.svg"
+                      alt="circle-text"
+                      width={110}
+                      height={110}
+                      className="absolute inset-0 w-full h-full animate-spin [animation-duration:10s] [animation-timing-function:linear]"
+                    />
+                    <div className="relative z-10 w-[75px] h-[75px] bg-indigo-500 rounded-full flex items-center justify-center">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                      >
+                        <path
+                          d="M20 5V35"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M15 30L20 35L25 30"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Skills */}
+                <div className="mb-[50px]">
+                  <h2 className="text-3xl font-semibold text-gray-900 mb-8">
+                    My Expert Area ✨
+                  </h2>
+                  <div className="flex flex-wrap gap-[17.8px]">
+                    {skills.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="group relative w-20 h-20 flex items-center justify-center bg-[#f0f2f5] border border-[#dbdfe5] rounded-2xl cursor-pointer transition-all hover:border-indigo-500 hover:bg-indigo-50/50"
+                      >
+                        <Image
+                          src={`/assets/img/icons/${skill.file}.${skill.ext}`}
+                          alt={skill.name}
+                          width={48}
+                          height={48}
+                          className="w-12 h-12 object-contain"
+                        />
+                        <span className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 translate-y-1 opacity-0 group-hover:opacity-100 group-hover:-translate-y-0 transition-all duration-200 bg-gray-900 text-white text-xs font-medium px-2.5 py-1 rounded-md whitespace-nowrap z-10 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-gray-900">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Work Together Slider */}
+                <div className="overflow-hidden border-t border-[#dbdfe5] pt-5">
+                  <div className="flex w-max animate-marquee-slide">
+                    {[...Array(2)].map((_, i) => (
+                      <div key={i} className="flex gap-8 pr-8">
+                        {[...Array(4)].map((_, j) => (
+                          <Link
+                            key={j}
+                            href="/contact"
+                            className="text-[40px] font-[550] text-gray-500 no-underline whitespace-nowrap transition-colors hover:text-gray-900"
+                          >
+                            Let&apos;s 👋 Work Together
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

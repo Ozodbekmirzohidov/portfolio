@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IProject } from "@/types";
 
 interface ProjectModalProps {
@@ -14,6 +14,8 @@ export function ProjectModal({
   onClose,
   onSuccess,
 }: ProjectModalProps) {
+  const supabase = createClient();
+
   const [form, setForm] = useState({
     title: project?.title ?? "",
     subtitle: project?.subtitle ?? "",

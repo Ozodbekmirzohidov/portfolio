@@ -1,6 +1,6 @@
-import { supabase } from "@/lib/supabase";
-
+import { createClient } from "@/lib/supabase/server"; 
 export default async function DashboardPage() {
+  const supabase = await createClient();
   const [
     { count: projectsCount },
     { count: skillsCount },

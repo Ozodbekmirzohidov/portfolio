@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IMessage } from "@/types";
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<IMessage[]>([]);
+const supabase = createClient();
 
   const fetchMessages = useCallback(async () => {
+    
       const { data } = await supabase
         .from("messages")
         .select("*")

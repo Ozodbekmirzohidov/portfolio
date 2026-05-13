@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { ISkill } from "@/types";
 import { SkillModal } from "@/components/dashboard/SkillModal";
 
 export default function SkillsPage() {
+  const supabase = createClient();
+
   const [skills, setSkills] = useState<ISkill[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selected, setSelected] = useState<ISkill | undefined>();

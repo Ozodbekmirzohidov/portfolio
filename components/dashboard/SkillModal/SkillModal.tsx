@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { ISkill } from "@/types";
 
 interface SkillModalProps {
@@ -18,6 +18,7 @@ export function SkillModal({ skill, onClose, onSuccess }: SkillModalProps) {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+const supabase = createClient();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });

@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IExperience } from "@/types";
 import { ExperienceModal } from "@/components/dashboard/ExperienceModal";
 
 export default function ExperiencesPage() {
+  const supabase = createClient();
+
   const [experiences, setExperiences] = useState<IExperience[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selected, setSelected] = useState<IExperience | undefined>();

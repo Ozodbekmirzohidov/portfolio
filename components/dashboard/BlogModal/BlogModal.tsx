@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IBlog } from "@/types";
 
 interface BlogModalProps {
@@ -10,6 +10,8 @@ interface BlogModalProps {
 }
 
 export function BlogModal({ blog, onClose, onSuccess }: BlogModalProps) {
+  const supabase = createClient();
+
   const [form, setForm] = useState({
     slug: blog?.slug ?? "",
     title: blog?.title ?? "",
@@ -37,15 +39,23 @@ export function BlogModal({ blog, onClose, onSuccess }: BlogModalProps) {
         .from("blogs")
         .update(form)
         .eq("id", blog.id);
-      if (error) setError(error.message);
-      else onSuccess();
+      if (error) {
+        setError(error.message);
+        setLoading(false);
+        return;
+      }
     } else {
       const { error } = await supabase.from("blogs").insert(form);
-      if (error) setError(error.message);
-      else onSuccess();
+      if (error) {
+        setError(error.message);
+        setLoading(false);
+        return;
+      }
     }
 
+    await fetch("/api/blog", { method: "POST" });
     setLoading(false);
+    onSuccess();
   };
 
   const inputFields = [

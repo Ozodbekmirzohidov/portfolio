@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning
       lang="en"
-      className={`${interSans.variable} h-full antialiased`}
+      className={`${interSans.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="w-full">{children}</body>
     </html>
   );
 }

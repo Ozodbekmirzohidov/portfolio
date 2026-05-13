@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import { IExperience } from "@/types";
 
 interface ExperienceModalProps {
@@ -14,6 +14,8 @@ export function ExperienceModal({
   onClose,
   onSuccess,
 }: ExperienceModalProps) {
+  const supabase = createClient();
+
   const [form, setForm] = useState({
     date: experience?.date ?? "",
     title: experience?.title ?? "",
