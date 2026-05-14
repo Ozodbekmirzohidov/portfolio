@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   {
@@ -180,6 +181,54 @@ const navLinks = [
   },
 ];
 
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div className="w-9 h-9" />;
+
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-500 transition-all cursor-pointer bg-transparent"
+      aria-label="Toggle theme"
+    >
+      {isDark ? (
+        // Sun icon
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      ) : (
+        // Moon icon
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </button>
+  );
+}
+
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -190,13 +239,13 @@ export function Navbar() {
   };
 
   return (
-    <header className="w-full sticky top-0 z-99">
+    <header className="w-full sticky top-0 z-[99]">
       <div className="max-w-[1300px] mx-auto">
-        <div className="flex items-center justify-between bg-white rounded-2xl px-6 py-3 shadow-[0_1px_10px_0px_rgba(26,31,44,0.25)]">
+        <div className="flex items-center justify-between bg-card rounded-2xl px-6 py-3 shadow-[0_1px_10px_0px_rgba(26,31,44,0.25)]">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-2xl font-bold text-gray-900 no-underline"
+            className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white no-underline"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -216,8 +265,8 @@ export function Navbar() {
                   href={link.href}
                   className={`flex items-center gap-1.5 text-[15px] font-semibold px-3 py-2.5 rounded-lg transition-all no-underline ${
                     isActive(link.href)
-                      ? "bg-gray-100 text-gray-900"
-                      : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+                      ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+                      : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   {link.icon}
@@ -229,9 +278,11 @@ export function Navbar() {
 
           {/* Right */}
           <div className="flex items-center gap-2.5">
+            <ThemeToggle />
+
             <Link
               href="/contact"
-              className="hidden xl:flex items-center gap-1.5 bg-gray-900 text-white text-[15px] font-semibold px-6 py-3.5 rounded-lg hover:bg-indigo-500 transition-all no-underline"
+              className="hidden xl:flex items-center gap-1.5 bg-gray-900 dark:bg-indigo-500 text-white text-[15px] font-semibold px-6 py-3.5 rounded-lg hover:bg-indigo-500 transition-all no-underline"
             >
               Let&apos;s Talk
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -254,7 +305,7 @@ export function Navbar() {
 
             {/* Mobile menu button */}
             <button
-              className="xl:hidden bg-none border-none cursor-pointer text-gray-900 p-2"
+              className="xl:hidden bg-transparent border-none cursor-pointer text-gray-900 dark:text-white p-2"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -284,7 +335,7 @@ export function Navbar() {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-1000 flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white dark:bg-gray-900 z-[1000] flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="mb-8">
           <Link
@@ -298,7 +349,9 @@ export function Navbar() {
                 fill="currentColor"
               />
             </svg>
-            <span className="text-gray-900 font-bold text-xl">Ali</span>
+            <span className="text-gray-900 dark:text-white font-bold text-xl">
+              Nex
+            </span>
             <span className="text-indigo-500 font-bold text-xl">Folio</span>
           </Link>
         </div>
@@ -311,8 +364,8 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold no-underline transition-all ${
                   isActive(link.href)
-                    ? "bg-gray-100 text-gray-900"
-                    : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                 }`}
               >
                 {link.icon}
@@ -322,11 +375,11 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-gray-100">
+        <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 w-full bg-gray-900 text-white px-6 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-indigo-500 transition-all no-underline"
+            className="flex items-center justify-center gap-2 w-full bg-gray-900 dark:bg-indigo-500 text-white px-6 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-indigo-500 transition-all no-underline"
           >
             Let&apos;s Talk
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -352,13 +405,10 @@ export function Navbar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-999"
+          className="fixed inset-0 bg-black/50 z-[999]"
           onClick={() => setIsOpen(false)}
         />
       )}
     </header>
   );
 }
-
-
-

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -18,11 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning
+    <html
+      suppressHydrationWarning
       lang="en"
       className={`${interSans.variable} antialiased`}
     >
-      <body className="w-full">{children}</body>
+      <body className="w-full">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

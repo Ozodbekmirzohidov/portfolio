@@ -13,18 +13,18 @@ const services = [
 
 export function Services() {
   return (
-    <section className="pb-8 px-4">
+    <section className="pb-8">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr] gap-6">
         {/* Services card */}
-        <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
+        <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
           <div className="p-8">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
+              <h3 className="text-2xl font-semibold text-head">
                 Services I Offered
               </h3>
               <Link
                 href="/services"
-                className="text-base font-medium text-indigo-500 border-b border-gray-200 no-underline hover:border-indigo-500 transition-all"
+                className="text-base font-medium text-[#5770FF] border-b border-gray-200 no-underline hover:border-p transition-all"
               >
                 See All →
               </Link>
@@ -34,9 +34,9 @@ export function Services() {
               {services.map((service) => (
                 <div
                   key={service.name}
-                  className="flex items-center gap-3.5 border border-gray-200 rounded-xl p-5 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all cursor-default"
+                  className="flex items-center gap-3.5 border border-gray-200 rounded-xl p-5 hover:border-[#5770FF] hover:bg-indigo-50/50 transition-all cursor-default"
                 >
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-mini-card rounded-xl flex items-center justify-center shrink-0">
                     <Image
                       src={service.icon}
                       alt={service.name}
@@ -45,7 +45,7 @@ export function Services() {
                       className="object-contain"
                     />
                   </div>
-                  <h3 className="text-[15px] font-semibold text-gray-900">
+                  <h3 className="text-[15px] font-semibold text-p">
                     {service.name}
                   </h3>
                 </div>
@@ -55,7 +55,7 @@ export function Services() {
         </div>
 
         {/* Let's Work Together card */}
-        <div className="bg-linear-to-br from-[#f5f0ff] to-[#ede8ff] rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
+        <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
           <div className="p-8 flex flex-col h-full">
             {/* Marquee */}
             <div className="overflow-hidden mb-6">
@@ -65,7 +65,7 @@ export function Services() {
               </p>
             </div>
 
-            <h3 className="text-3xl font-bold text-gray-900 leading-snug mb-6">
+            <h3 className="text-3xl font-bold text-head leading-snug mb-6">
               Let&apos;s 👋 <br /> Work Together
             </h3>
 

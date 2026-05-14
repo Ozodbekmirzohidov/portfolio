@@ -30,7 +30,7 @@ export async function PortfolioContent() {
   const projects = await getProjects();
 
   return (
-    <section className="py-10 px-4 pb-8">
+    <section className="py-10 pb-8">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
           <div className="w-full">
@@ -38,14 +38,14 @@ export async function PortfolioContent() {
           </div>
 
           <div className="w-full h-full">
-            <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
+            <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
               <div className="px-10 pt-12 pb-10">
                 <div className="mb-12">
-                  <h1 className="text-[40px] font-bold text-gray-900 mb-6">
+                  <h1 className="text-[40px] font-bold text-head mb-6">
                     Check Out My Latest{" "}
-                    <span className="text-indigo-500">Projects</span>
+                    <span className="text-[#4770FF]">Projects</span>
                   </h1>
-                  <p className="max-w-[630px] text-lg font-semibold text-gray-500 leading-normal">
+                  <p className="max-w-[630px] text-lg font-semibold text-p leading-normal">
                     Explore some of my recent frontend projects built with
                     modern technologies and best practices.
                   </p>
@@ -55,7 +55,7 @@ export async function PortfolioContent() {
                   {projects.map((project) => (
                     <div
                       key={project.id}
-                      className="border border-[#dbdfe5] rounded-2xl overflow-hidden transition-colors hover:border-indigo-500"
+                      className="border border-border rounded-2xl overflow-hidden transition-colors hover:border-[#4770FF]"
                     >
                       {project.image && (
                         <div className="group relative overflow-hidden">
@@ -69,7 +69,7 @@ export async function PortfolioContent() {
                           <Link
                             href={project.image}
                             target="_blank"
-                            className="absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center text-gray-900 no-underline opacity-0 group-hover:opacity-100 transition-all hover:bg-indigo-500 hover:text-white"
+                            className="absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center text-gray-900 no-underline opacity-0 group-hover:opacity-100 transition-all hover:bg-[#4770FF] hover:text-white"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -93,12 +93,12 @@ export async function PortfolioContent() {
                             href={project.detail_link ?? "/portfolio"}
                             className="no-underline group/title"
                           >
-                            <h3 className="text-2xl font-semibold text-gray-900 mb-1 transition-colors group-hover/title:text-indigo-500">
+                            <h3 className="text-2xl font-semibold text-head mb-1 transition-colors group-hover/title:text-indigo-500">
                               {project.title}
                             </h3>
                           </Link>
                           {project.subtitle && (
-                            <p className="text-[13px] text-gray-500">
+                            <p className="text-[13px] text-p">
                               {project.subtitle}
                             </p>
                           )}
@@ -106,7 +106,7 @@ export async function PortfolioContent() {
                         <div className="flex items-center gap-3 shrink-0">
                           <Link
                             href={project.detail_link ?? "/portfolio"}
-                            className="flex items-center gap-1 text-sm font-medium text-indigo-500 no-underline hover:opacity-70 transition-opacity"
+                            className="flex items-center gap-1 text-sm font-medium text-[#4770FF] no-underline hover:opacity-96 transition-opacity"
                           >
                             View Details <ArrowIcon />
                           </Link>
@@ -115,7 +115,7 @@ export async function PortfolioContent() {
                               href={project.site_link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center gap-1 text-sm font-medium text-indigo-500 no-underline hover:opacity-70 transition-opacity"
+                              className="flex items-center gap-1 text-sm font-medium text-[#4770FF] no-underline hover:opacity-96 transition-opacity"
                             >
                               Visit Site <ArrowIcon />
                             </Link>
@@ -126,7 +126,7 @@ export async function PortfolioContent() {
                   ))}
                 </div>
 
-                <div className="overflow-hidden border-t border-[#dbdfe5] pt-5">
+                <div className="overflow-hidden border-t border-border pt-5">
                   <div className="flex w-max animate-marquee-slide">
                     {[...Array(2)].map((_, i) => (
                       <div key={i} className="flex gap-8 pr-8">
@@ -134,7 +134,7 @@ export async function PortfolioContent() {
                           <Link
                             key={j}
                             href="/contact"
-                            className="text-[40px] font-bold text-gray-500 no-underline whitespace-nowrap transition-colors hover:text-gray-900"
+                            className="text-[40px] font-bold text-p no-underline whitespace-nowrap transition-colors hover:text-head"
                           >
                             Let&apos;s 👋 Work Together
                           </Link>

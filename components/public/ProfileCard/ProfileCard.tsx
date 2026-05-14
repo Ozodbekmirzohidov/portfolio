@@ -52,9 +52,9 @@ export function ProfileCard() {
   };
 
   return (
-    <div className="sticky top-[104px] bg-white rounded-2xl border border-white/80 overflow-hidden shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-fit">
+    <div className="p-6 sticky top-[104px] bg-card rounded-2xl border border-card overflow-hidden shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-fit">
       {/* Image */}
-      <div className="h-[340px]">
+      <div className="h-[340px] mb-4 rounded-2xl overflow-hidden">
         <Image
           src="/assets/img/profile.png"
           alt="Profile"
@@ -65,14 +65,14 @@ export function ProfileCard() {
       </div>
 
       {/* Text */}
-      <div className="px-6 pt-4 pb-6">
-        <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+      <div className="pb-6">
+        <h3 className="text-2xl font-semibold text-head mb-2">
           Ozodbek Mirzohidov 👋
         </h3>
-        <p className="text-base font-semibold text-gray-500 leading-6 mb-2">
+        <p className="text-base font-semibold text-p leading-6 mb-2">
           Passionate{" "}
-          <span className="font-bold text-gray-900">Front-end Developer</span>{" "}
-          🖥️ specializing in building modern, responsive, and user-friendly web
+          <span className="font-bold text-special">Front-end Developer</span> 🖥️
+          specializing in building modern, responsive, and user-friendly web
           applications.
         </p>
 
@@ -81,7 +81,7 @@ export function ProfileCard() {
           <Link
             href="https://t.me/mirzohidov_1"
             target="_blank"
-            className="flex items-center gap-1.5 bg-indigo-500 text-white px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-indigo-600 transition-all no-underline"
+            className="flex items-center gap-1.5 bg-[#4770FF] text-white px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-[#2562EB] transition-all no-underline"
           >
             <svg width="20" height="20" viewBox="0 0 25 24" fill="none">
               <path
@@ -110,7 +110,7 @@ export function ProfileCard() {
           </Link>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1.5 bg-transparent text-gray-900 border border-gray-400 px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-gray-100 transition-all cursor-pointer"
+            className="flex items-center gap-1.5 bg-transparent text-special border border-border px-4 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-[#F0F2F5] transition-all cursor-pointer dark:hover:bg-[#1a1f2c]"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path
@@ -140,7 +140,7 @@ export function ProfileCard() {
               href={s.href}
               target="_blank"
               aria-label={s.label}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-400 text-gray-600 no-underline hover:text-indigo-500 hover:border-indigo-500 transition-all"
+              className="w-10 h-10 flex items-center justify-center rounded-lg border border-border text-[#384559] no-underline hover:text-[#4770FF] hover:border-[#4770FF] transition-all dark:bg-[#0E1018]"
             >
               {s.icon}
             </Link>

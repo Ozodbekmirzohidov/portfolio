@@ -8,34 +8,34 @@ interface ExpertAreaProps {
 
 export function ExpertArea({ skills }: ExpertAreaProps) {
   return (
-    <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
+    <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-semibold text-gray-900">
-            My Expert Area
-          </h3>
+          <h3 className="text-2xl font-semibold text-head">My Expert Area</h3>
           <Link
             href="/about"
-            className="text-base font-medium text-indigo-500 border-b border-gray-200 no-underline hover:border-indigo-500 transition-all"
+            className="text-base font-medium text-[#4770FF] border-b border-gray-200 no-underline hover:border-p transition-all"
           >
             See All →
           </Link>
         </div>
 
-        <div className="grid grid-cols-3 gap-2.5">
+        <div className="grid grid-cols-3 gap-y-6 gap-x-3">
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="flex flex-col items-center bg-gray-100 rounded-xl px-2 py-3"
+              className="flex flex-col items-center rounded-xl"
             >
-              <Image
-                src={`/assets/img/icons/${skill.file}.${skill.ext}`}
-                alt={skill.name}
-                width={40}
-                height={40}
-                className="object-contain"
-              />
-              <h4 className="text-xs text-gray-600 mt-2 text-center">
+              <div className="flex justify-center w-full bg-mini-card py-5 rounded-xl">
+                <Image
+                  src={`/assets/img/icons/${skill.file}.${skill.ext}`}
+                  alt={skill.name}
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              <h4 className="text-[16px] text-special mt-2 text-center">
                 {skill.name}
               </h4>
             </div>

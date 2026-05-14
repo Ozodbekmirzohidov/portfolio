@@ -47,7 +47,7 @@ export function ServicesContent() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="py-10 px-4 pb-8">
+    <section className="py-10 pb-8">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
           <div className="w-full">
@@ -55,14 +55,14 @@ export function ServicesContent() {
           </div>
 
           <div className="w-full h-full">
-            <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
+            <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
               <div className="px-10 pt-12 pb-10">
                 {/* Top info */}
                 <div className="mb-12">
-                  <h1 className="text-[40px] font-semibold text-gray-900 mb-6">
-                    My <span className="text-indigo-500">Services</span>
+                  <h1 className="text-[40px] font-semibold text-head mb-6">
+                    My <span className="text-[#4770FF]">Services</span>
                   </h1>
-                  <p className="max-w-[500px] text-2xl font-medium text-gray-500 leading-[1.3]">
+                  <p className="max-w-[500px] text-2xl font-medium text-p leading-[1.3]">
                     Delivering high-quality frontend development services
                     tailored to your needs.
                   </p>
@@ -73,9 +73,9 @@ export function ServicesContent() {
                   {services.map((service) => (
                     <div
                       key={service.name}
-                      className="flex flex-col items-center text-center px-4 py-6 border border-[#dbdfe5] rounded-2xl transition-all hover:border-indigo-500 hover:bg-[#f5f8ff] cursor-default"
+                      className="flex flex-col items-center text-center px-4 py-6 border border-border rounded-2xl transition-all hover:border-[#4770FF] cursor-default"
                     >
-                      <div className="w-[70px] h-[70px] bg-[#f0f2f5] rounded-[14px] flex items-center justify-center mb-3.5">
+                      <div className="w-[70px] h-[70px] bg-mini-card rounded-[14px] flex items-center justify-center mb-3.5">
                         <Image
                           src={service.icon}
                           alt={service.name}
@@ -84,7 +84,7 @@ export function ServicesContent() {
                           className="object-contain"
                         />
                       </div>
-                      <h3 className="text-sm font-semibold text-gray-900 leading-[1.4]">
+                      <h3 className="text-sm font-semibold text-p leading-[1.4]">
                         {service.name}
                       </h3>
                     </div>
@@ -93,25 +93,25 @@ export function ServicesContent() {
 
                 {/* FAQ */}
                 <div className="mb-7">
-                  <h2 className="text-3xl font-semibold text-gray-900 mb-8">
+                  <h2 className="text-3xl font-semibold text-head mb-8">
                     Frequently Asked Questions
                   </h2>
                   <div className="flex flex-col gap-5">
                     {faqs.map((faq, i) => (
                       <div
                         key={i}
-                        className="border border-[#dbdfe5] rounded-xl overflow-hidden transition-colors hover:border-[#c5cedb]"
+                        className="border border-border rounded-xl overflow-hidden transition-colors hover:border-[#4770FF]"
                       >
                         <button
                           onClick={() => toggle(i)}
                           className={`w-full flex items-center justify-between gap-3 px-5 py-5 text-left text-lg font-medium transition-colors cursor-pointer border-none ${
                             openIndex === i
-                              ? "bg-[#f5f8ff] text-indigo-500"
-                              : "bg-transparent text-gray-900 hover:bg-gray-50"
+                              ? "bg-card text-[4770FF]"
+                              : "bg-transparent text-p hover:text-head"
                           }`}
                         >
                           {faq.question}
-                          <span className="shrink-0 text-gray-500 flex items-center">
+                          <span className="shrink-0 text-[#4770FF] flex items-center">
                             {openIndex === i ? (
                               <svg
                                 width="20"
@@ -144,8 +144,8 @@ export function ServicesContent() {
                           </span>
                         </button>
                         {openIndex === i && (
-                          <div className="px-5 pb-4 border-t border-[#dbdfe5]">
-                            <p className="text-base text-gray-900 leading-[1.7] pt-3">
+                          <div className="px-5 pb-4 border-t border-border">
+                            <p className="text-base text-head leading-[1.7] pt-3">
                               {faq.answer}
                             </p>
                           </div>
@@ -156,7 +156,7 @@ export function ServicesContent() {
                 </div>
 
                 {/* Work Together Slider */}
-                <div className="overflow-hidden border-t border-[#dbdfe5] pt-5">
+                <div className="overflow-hidden border-t border-border pt-5">
                   <div className="flex w-max animate-marquee-slide">
                     {[...Array(2)].map((_, i) => (
                       <div key={i} className="flex gap-8 pr-8">
@@ -164,7 +164,7 @@ export function ServicesContent() {
                           <Link
                             key={j}
                             href="/contact"
-                            className="text-[40px] font-bold text-gray-500 no-underline whitespace-nowrap transition-colors hover:text-gray-900"
+                            className="text-[40px] font-bold text-p no-underline whitespace-nowrap transition-colors hover:text-head"
                           >
                             Let&apos;s 👋 Work Together
                           </Link>

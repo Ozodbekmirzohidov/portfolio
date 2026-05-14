@@ -52,10 +52,9 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-10 px-4 pb-8">
+    <section className="py-10 pb-8">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
-
           {/* Chap — Profile Card */}
           <div className="w-full">
             <ProfileCard />
@@ -63,16 +62,15 @@ export default function Contact() {
 
           {/* O'ng — Content */}
           <div className="w-full h-full">
-            <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
+            <div className="bg-card rounded-2xl border border-card shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
               <div className="px-10 pt-12 pb-10">
-
                 {/* Top info */}
                 <div className="mb-12">
-                  <h1 className="text-[40px] font-bold text-gray-900 mb-6 leading-[1.3]">
+                  <h1 className="text-[40px] font-bold text-head mb-6 leading-[1.3]">
                     Let&apos;s Work{" "}
-                    <span className="text-indigo-500">Together!</span>
+                    <span className="text-[#4770FF]">Together!</span>
                   </h1>
-                  <p className="max-w-[480px] text-2xl text-gray-500 leading-[1.4]">
+                  <p className="max-w-[480px] text-2xl text-p leading-[1.4]">
                     Have a project in mind? I&apos;d love to hear from you. Send
                     me a message and I&apos;ll get back to you as soon as
                     possible.
@@ -82,25 +80,25 @@ export default function Contact() {
                 {/* Contact info */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-7">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-1.5">
+                    <h3 className="text-2xl font-semibold text-head mb-1.5">
                       Email
                     </h3>
                     <Link
                       href="mailto:ozodbek.mirzohidov@icloud.com"
-                      className="text-lg text-gray-500 no-underline transition-colors hover:text-indigo-500"
+                      className="text-lg text-p no-underline transition-colors hover:text-[#4770FF]"
                     >
                       ozodbek.mirzohidov@icloud.com
                     </Link>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-1.5">
+                    <h3 className="text-2xl font-semibold text-head mb-1.5">
                       Telegram
                     </h3>
                     <Link
                       href="https://t.me/mirzohidov_1"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg text-gray-500 no-underline transition-colors hover:text-indigo-500"
+                      className="text-lg text-p no-underline transition-colors hover:text-[#4770FF]"
                     >
                       @mirzohidov_1
                     </Link>
@@ -108,12 +106,12 @@ export default function Contact() {
                 </div>
 
                 {/* Form */}
-                <div className="bg-gray-50 rounded-2xl p-7">
+                <div className="bg-mini-card rounded-2xl p-7">
                   <form onSubmit={handleSubmit}>
                     {/* Name + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm font-medium text-gray-900">
+                        <label className="text-sm font-medium text-p">
                           Name
                         </label>
                         <input
@@ -123,11 +121,11 @@ export default function Contact() {
                           value={form.name}
                           onChange={handleChange}
                           required
-                          className="px-4 py-3 border border-[#dbdfe5] rounded-xl text-base text-gray-500 bg-white outline-none transition-all placeholder:text-[#adb5bd] focus:border-indigo-500 focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
+                          className="px-4 py-3 border border-border rounded-xl text-base text-p bg-background outline-none transition-all placeholder:text-[#adb5bd] focus:border-[#4770FF] focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm font-medium text-gray-900">
+                        <label className="text-sm font-medium text-p">
                           Email
                         </label>
                         <input
@@ -137,14 +135,14 @@ export default function Contact() {
                           value={form.email}
                           onChange={handleChange}
                           required
-                          className="px-4 py-3 border border-[#dbdfe5] rounded-xl text-base text-gray-500 bg-white outline-none transition-all placeholder:text-[#adb5bd] focus:border-indigo-500 focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
+                          className="px-4 py-3 border border-border rounded-xl text-base text-p bg-background outline-none transition-all placeholder:text-[#adb5bd] focus:border-indigo-500 focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
                         />
                       </div>
                     </div>
 
                     {/* Subject */}
                     <div className="flex flex-col gap-2 mb-4">
-                      <label className="text-sm font-medium text-gray-900">
+                      <label className="text-sm font-medium text-p">
                         Subject
                       </label>
                       <input
@@ -154,13 +152,13 @@ export default function Contact() {
                         value={form.subject}
                         onChange={handleChange}
                         required
-                        className="px-4 py-3 border border-[#dbdfe5] rounded-xl text-base text-gray-500 bg-white outline-none transition-all placeholder:text-[#adb5bd] focus:border-indigo-500 focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
+                        className="px-4 py-3 border border-border rounded-xl text-base text-p bg-background outline-none transition-all placeholder:text-[#adb5bd] focus:border-[#4770FF] focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)]"
                       />
                     </div>
 
                     {/* Message */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-900">
+                      <label className="text-sm font-medium text-p">
                         Message
                       </label>
                       <textarea
@@ -170,7 +168,7 @@ export default function Contact() {
                         value={form.message}
                         onChange={handleChange}
                         required
-                        className="px-4 py-3 border border-[#dbdfe5] rounded-xl text-base text-gray-500 bg-white outline-none transition-all placeholder:text-[#adb5bd] focus:border-indigo-500 focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)] resize-y"
+                        className="px-4 py-3 border border-border rounded-xl text-base text-p bg-background outline-none transition-all placeholder:text-[#adb5bd] focus:border-[#4770FF] focus:shadow-[0_0_0_3px_rgba(71,112,255,0.1)] resize-y"
                       />
                     </div>
 
@@ -190,11 +188,18 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="w-full flex items-center justify-center gap-2 mt-5 px-4 py-4 bg-indigo-500 text-white border-none rounded-xl text-[15px] font-semibold cursor-pointer transition-colors hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 mt-5 px-4 py-4 bg-[#4770FF] text-white border-none rounded-xl text-[15px] font-semibold cursor-pointer transition-colors hover:bg-[#2c56ee] disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {status === "loading" ? "Yuborilmoqda..." : "Send Message"}
+                      {status === "loading"
+                        ? "Yuborilmoqda..."
+                        : "Send Message"}
                       {status !== "loading" && (
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
                           <path
                             d="M17.5 11.6665V6.6665H12.5"
                             stroke="white"
@@ -214,11 +219,9 @@ export default function Contact() {
                     </button>
                   </form>
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

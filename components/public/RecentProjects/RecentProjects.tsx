@@ -8,15 +8,15 @@ interface RecentProjectsProps {
 
 export function RecentProjects({ projects }: RecentProjectsProps) {
   return (
-    <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-full overflow-hidden">
+    <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-full overflow-hidden">
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-2xl font-semibold text-gray-900">
+          <h3 className="text-2xl font-semibold text-head">
             Recent Projects
           </h3>
           <Link
             href="/portfolio"
-            className="text-base font-medium text-indigo-500 border-b border-gray-200 no-underline hover:border-indigo-500 transition-all"
+            className="text-base font-medium text-[#5770FF] border-b border-gray-200 no-underline hover:border-p transition-all"
           >
             See all →
           </Link>

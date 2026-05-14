@@ -7,7 +7,7 @@ export async function AboutContent() {
   const skills = await getSkills();
 
   return (
-    <section className="py-10 px-4 pb-8">
+    <section className="py-10 pb-8">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
           <div className="w-full">
@@ -15,21 +15,20 @@ export async function AboutContent() {
           </div>
 
           <div className="w-full h-full">
-            <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
+            <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden h-full">
               <div className="px-10 pt-12 pb-10">
                 {/* Top info */}
                 <div className="flex items-start justify-between gap-5 mb-12 flex-col sm:flex-row">
                   <div className="w-full max-w-[540px]">
-                    <h1 className="text-[40px] font-bold text-gray-900 mb-6 leading-[1.3]">
+                    <h1 className="text-[40px] font-bold text-head mb-6 leading-[1.3]">
                       Hi, This Is{" "}
-                      <span className="text-indigo-500">
-                        Ozodbek Mirzohidov
-                      </span>{" "}
-                      👋
+                      <div className="block text-[#4770FF]">
+                        Ozodbek Mirzohidov 👋
+                      </div>
                     </h1>
-                    <p className="max-w-[460px] text-2xl font-medium text-gray-500 leading-[1.33]">
+                    <p className="max-w-[460px] text-2xl font-medium text-p leading-[1.33]">
                       Passionate{" "}
-                      <span className="font-bold text-gray-900">
+                      <span className="font-bold text-head">
                         Front-end Developer
                       </span>{" "}
                       🖥️ specializing in building modern, responsive, and
@@ -48,18 +47,18 @@ export async function AboutContent() {
                 <div className="flex items-center justify-between mb-[50px] pb-5 border-b border-[#dbdfe5]">
                   <div className="flex gap-10">
                     <div>
-                      <h3 className="text-[40px] font-semibold text-gray-900 mb-1">
+                      <h3 className="text-[40px] font-semibold text-head mb-1">
                         4+
                       </h3>
-                      <p className="text-base text-gray-500">
+                      <p className="text-base text-p">
                         Year of Experience
                       </p>
                     </div>
                     <div>
-                      <h3 className="text-[40px] font-semibold text-gray-900 mb-1">
+                      <h3 className="text-[40px] font-semibold text-head mb-1">
                         30+
                       </h3>
-                      <p className="text-base text-gray-500">
+                      <p className="text-base text-p ">
                         Project Completed
                       </p>
                     </div>
@@ -100,14 +99,14 @@ export async function AboutContent() {
 
                 {/* Skills */}
                 <div className="mb-[50px]">
-                  <h2 className="text-3xl font-semibold text-gray-900 mb-8">
+                  <h2 className="text-3xl font-semibold text-head mb-8">
                     My Expert Area ✨
                   </h2>
                   <div className="flex flex-wrap gap-[17.8px]">
                     {skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="group relative w-20 h-20 flex items-center justify-center bg-[#f0f2f5] border border-[#dbdfe5] rounded-2xl cursor-pointer transition-all hover:border-indigo-500 hover:bg-indigo-50/50"
+                        className="group relative w-20 h-20 flex items-center justify-center bg-mini-card border border-border rounded-2xl cursor-pointer transition-all hover:border-[#4770FF]"
                       >
                         <Image
                           src={`/assets/img/icons/${skill.file}.${skill.ext}`}

@@ -21,9 +21,9 @@ export function WorkExperience({ experiences }: WorkExperienceProps) {
   }, [experiences]);
 
   return (
-    <div className="bg-white rounded-2xl border border-white/80 shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
+    <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] overflow-hidden">
       <div className="p-6">
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+        <h3 className="text-2xl font-semibold text-head mb-4">
           Work Experience
         </h3>
         <div className="overflow-hidden" style={{ height: listHeight }}>
@@ -42,10 +42,10 @@ export function WorkExperience({ experiences }: WorkExperienceProps) {
               <div key={i}>
                 {experiences.map((exp) => (
                   <li key={exp.title + i} className="flex flex-col mb-4">
-                    <p className="text-sm font-medium text-gray-500">
+                    <p className="text-sm font-medium text-head">
                       {exp.date}
                     </p>
-                    <h4 className="text-base font-semibold text-gray-900 leading-8">
+                    <h4 className="text-base font-semibold text-p leading-8">
                       {exp.title}
                     </h4>
                     <h6 className="text-sm font-normal text-gray-500 mt-0.5">
