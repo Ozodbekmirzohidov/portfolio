@@ -24,7 +24,7 @@ export function Services() {
               </h3>
               <Link
                 href="/services"
-                className="text-base font-medium text-[#5770FF] border-b border-gray-200 no-underline hover:border-p transition-all"
+                className="text-base font-medium text-[#5770FF] border-b border-border no-underline hover:border-p transition-all"
               >
                 See All →
               </Link>
@@ -34,7 +34,7 @@ export function Services() {
               {services.map((service) => (
                 <div
                   key={service.name}
-                  className="flex items-center gap-3.5 border border-gray-200 rounded-xl p-5 hover:border-[#5770FF] hover:bg-indigo-50/50 transition-all cursor-default"
+                  className="flex items-center gap-3.5 border border-border rounded-xl p-5 hover:border-[#4770FF] transition-all cursor-default"
                 >
                   <div className="w-12 h-12 bg-mini-card rounded-xl flex items-center justify-center shrink-0">
                     <Image
@@ -59,7 +59,7 @@ export function Services() {
           <div className="p-8 flex flex-col h-full">
             {/* Marquee */}
             <div className="overflow-hidden mb-6">
-              <p className="text-sm font-medium text-gray-500 whitespace-nowrap animate-[marquee_12s_linear_infinite] inline-block">
+              <p className="text-sm font-medium text-p whitespace-nowrap animate-[marquee_12s_linear_infinite] inline-block">
                 Available For Hire 🚀 Crafting Digital Experiences 🎨 Available
                 For Hire 🚀 Crafting Digital Experiences 🎨
               </p>

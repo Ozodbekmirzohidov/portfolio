@@ -193,7 +193,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-500 transition-all cursor-pointer bg-transparent"
+      className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-500 hover:text-[#4770FF] transition-all cursor-pointer bg-transparent"
       aria-label="Toggle theme"
     >
       {isDark ? (
@@ -245,7 +245,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white no-underline"
+            className="flex items-center gap-2 text-2xl font-bold text-head dark:no-underline"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -254,7 +254,7 @@ export function Navbar() {
               />
             </svg>
             <span>Nex</span>
-            <span className="text-indigo-500">Folio</span>
+            <span className="text-[#4770FF]">Folio</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -265,8 +265,8 @@ export function Navbar() {
                   href={link.href}
                   className={`flex items-center gap-1.5 text-[15px] font-semibold px-3 py-2.5 rounded-lg transition-all no-underline ${
                     isActive(link.href)
-                      ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-                      : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                      ? "bg-navbar-hover  text-head dark:text-[#f0f2f5]"
+                      : "text-p hover:bg-navbar-hover hover:text-head"
                   }`}
                 >
                   {link.icon}
@@ -282,7 +282,7 @@ export function Navbar() {
 
             <Link
               href="/contact"
-              className="hidden xl:flex items-center gap-1.5 bg-gray-900 dark:bg-indigo-500 text-white text-[15px] font-semibold px-6 py-3.5 rounded-lg hover:bg-indigo-500 transition-all no-underline"
+              className="hidden xl:flex items-center gap-1.5 bg-[#1A1F2C] text-white text-[15px] font-semibold px-6 py-3.5 rounded-lg hover:bg-[#4770FF] transition-all no-underline"
             >
               Let&apos;s Talk
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -305,7 +305,7 @@ export function Navbar() {
 
             {/* Mobile menu button */}
             <button
-              className="xl:hidden bg-transparent border-none cursor-pointer text-gray-900 dark:text-white p-2"
+              className="xl:hidden bg-transparent border-none cursor-pointer text-head dark:p-2"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -335,7 +335,7 @@ export function Navbar() {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white dark:bg-gray-900 z-[1000] flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 bottom-0 w-[280px] bg-card z-[1000] flex flex-col p-6 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="mb-8">
           <Link
@@ -349,10 +349,8 @@ export function Navbar() {
                 fill="currentColor"
               />
             </svg>
-            <span className="text-gray-900 dark:text-white font-bold text-xl">
-              Nex
-            </span>
-            <span className="text-indigo-500 font-bold text-xl">Folio</span>
+            <span className="text-head font-bold text-xl">Nex</span>
+            <span className="text-[#4770FF] font-bold text-xl">Folio</span>
           </Link>
         </div>
 
@@ -364,8 +362,8 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold no-underline transition-all ${
                   isActive(link.href)
-                    ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-navbar-hover  text-head dark:text-[#f0f2f5]"
+                    : "text-p hover:bg-navbar-hover hover:text-head"
                 }`}
               >
                 {link.icon}
@@ -379,7 +377,7 @@ export function Navbar() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 w-full bg-gray-900 dark:bg-indigo-500 text-white px-6 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-indigo-500 transition-all no-underline"
+            className="flex items-center justify-center gap-2 w-full bg-[#1A1F2C] text-white px-6 py-3.5 rounded-lg text-[15px] font-semibold hover:bg-[#4770FF] transition-all no-underline"
           >
             Let&apos;s Talk
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

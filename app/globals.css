@@ -25,6 +25,7 @@ html {
   --p: #576076;
   --special: #1A1F2C;
   --mini-card: #F0F2F5;
+  --navbar-hover: #F0F2F5;
 }
 
 .dark {
@@ -36,6 +37,7 @@ html {
   --p: #f0f2f5b3;
   --special: #FFFFFF;
   --mini-card: #101011;
+  --navbar-hover: #1A1F2C;
 }
 
 body {
@@ -55,6 +57,7 @@ body {
   --color-p: var(--p);
   --color-special: var(--special);
   --color-mini-card: var(--mini-card);
+  --color-navbar-hover: var(--navbar-hover)
 }
 
 @keyframes pulseDot {
