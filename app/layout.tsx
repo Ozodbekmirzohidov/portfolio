@@ -25,7 +25,11 @@ export default function RootLayout({
       className={`${interSans.variable} antialiased`}
     >
       <body className="w-full">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
           {children}
         </ThemeProvider>
       </body>
