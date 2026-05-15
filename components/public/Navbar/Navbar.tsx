@@ -193,7 +193,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-indigo-500 hover:text-[#4770FF] transition-all cursor-pointer bg-transparent"
+      className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#4770FF] hover:text-[#4770FF] transition-all cursor-pointer bg-transparent"
       aria-label="Toggle theme"
     >
       {isDark ? (
@@ -305,7 +305,7 @@ export function Navbar() {
 
             {/* Mobile menu button */}
             <button
-              className="xl:hidden bg-transparent border-none cursor-pointer text-head dark:p-2"
+              className="xl:hidden bg-transparent border-none cursor-pointer text-head"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
