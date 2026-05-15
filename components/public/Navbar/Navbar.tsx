@@ -240,7 +240,7 @@ export function Navbar() {
 
   return (
     <header className="w-full sticky top-0 z-[99]">
-      <div className="max-w-[1300px] mx-auto">
+      <div className="max-w-[1140px] mx-auto px-3">
         <div className="flex items-center justify-between bg-card rounded-2xl px-6 py-3 shadow-[0_1px_10px_0px_rgba(26,31,44,0.25)]">
           {/* Logo */}
           <Link
