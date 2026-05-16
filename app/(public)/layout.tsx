@@ -39,7 +39,7 @@ export default function PublicLayout({
       </div>
 
       <Navbar />
-      <main className="max-w-[1140px] mx-auto px-3">
+      <main className="max-w-[1400px] mx-auto">
         {children}
       </main>
     </div>
