@@ -48,7 +48,7 @@ export async function AboutContent() {
                   <div className="flex gap-10">
                     <div>
                       <h3 className="text-[40px] font-semibold text-head mb-1">
-                        4+
+                        1+
                       </h3>
                       <p className="text-base text-p">
                         Year of Experience
@@ -56,7 +56,7 @@ export async function AboutContent() {
                     </div>
                     <div>
                       <h3 className="text-[40px] font-semibold text-head mb-1">
-                        30+
+                        5+
                       </h3>
                       <p className="text-base text-p ">
                         Project Completed
