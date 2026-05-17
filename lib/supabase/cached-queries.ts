@@ -18,7 +18,7 @@ export const getSkills = unstable_cache(
     return data ?? [];
   },
   ["skills"],
-  { revalidate: 3600, tags: ["skills"] },
+  { revalidate: 100, tags: ["skills"] },
 );
 
 export const getProjects = unstable_cache(
