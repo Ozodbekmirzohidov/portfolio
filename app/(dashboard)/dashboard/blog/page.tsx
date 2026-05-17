@@ -26,6 +26,11 @@ export default function BlogPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("O'chirishni tasdiqlaysizmi?")) return;
     await supabase.from("blogs").delete().eq("id", id);
+      await fetch("/api/revalidate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tag: "blogs" }),
+      });
     fetchBlogs();
   };
 
@@ -39,10 +44,17 @@ export default function BlogPage() {
     setModalOpen(true);
   };
 
-  const handleSuccess = () => {
-    setModalOpen(false);
-    fetchBlogs();
-  };
+ const handleSuccess = async () => {
+   setModalOpen(false);
+
+   await fetch("/api/revalidate", {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify({ tag: "blogs" }),
+   });
+
+   fetchBlogs();
+ };
 
   return (
     <div>

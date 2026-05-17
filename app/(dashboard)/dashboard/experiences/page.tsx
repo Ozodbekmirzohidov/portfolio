@@ -26,6 +26,11 @@ export default function ExperiencesPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("O'chirishni tasdiqlaysizmi?")) return;
     await supabase.from("experiences").delete().eq("id", id);
+     await fetch("/api/revalidate", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify({ tag: "experiences" }),
+     });
     fetchExperiences();
   };
 
@@ -39,10 +44,17 @@ export default function ExperiencesPage() {
     setModalOpen(true);
   };
 
-  const handleSuccess = () => {
-    setModalOpen(false);
-    fetchExperiences();
-  };
+const handleSuccess = async () => {
+  setModalOpen(false);
+
+  await fetch("/api/revalidate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tag: "experiences" }),
+  });
+
+  fetchExperiences();
+};
 
   return (
     <div>

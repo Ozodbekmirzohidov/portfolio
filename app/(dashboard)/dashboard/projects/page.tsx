@@ -27,6 +27,11 @@ export default function ProjectsPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("O'chirishni tasdiqlaysizmi?")) return;
     await supabase.from("projects").delete().eq("id", id);
+      await fetch("/api/revalidate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tag: "projects" }),
+      });
     fetchProjects();
   };
 
@@ -40,10 +45,17 @@ export default function ProjectsPage() {
     setModalOpen(true);
   };
 
-  const handleSuccess = () => {
-    setModalOpen(false);
-    fetchProjects();
-  };
+const handleSuccess = async () => {
+  setModalOpen(false);
+
+  await fetch("/api/revalidate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tag: "projects" }),
+  });
+
+  fetchProjects();
+};
 
   return (
     <div>

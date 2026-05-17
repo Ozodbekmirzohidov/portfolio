@@ -26,6 +26,11 @@ export default function SkillsPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("O'chirishni tasdiqlaysizmi?")) return;
     await supabase.from("skills").delete().eq("id", id);
+     await fetch("/api/revalidate", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify({ tag: "skills" }),
+     });
     fetchSkills();
   };
 
@@ -39,10 +44,18 @@ export default function SkillsPage() {
     setModalOpen(true);
   };
 
-  const handleSuccess = () => {
-    setModalOpen(false);
-    fetchSkills();
-  };
+const handleSuccess = async () => {
+  setModalOpen(false);
+
+  // Cache'ni tozalash
+  await fetch("/api/revalidate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tag: "skills" }),
+  });
+
+  fetchSkills();
+};
 
   return (
     <div>
