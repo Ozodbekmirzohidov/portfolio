@@ -11,6 +11,7 @@ const supabase = createServerClient(
 
 export const getSkills = unstable_cache(
   async (): Promise<ISkill[]> => {
+     console.log("getSkills called");
     const { data } = await supabase
       .from("skills")
       .select("*")
