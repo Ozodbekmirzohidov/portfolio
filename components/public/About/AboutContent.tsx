@@ -10,7 +10,7 @@ export async function AboutContent() {
     <section className="py-10 pb-8">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
-          <div className="w-full">
+          <div className="w-full self-start sticky top-[104px]">
             <ProfileCard />
           </div>
 
@@ -50,17 +50,13 @@ export async function AboutContent() {
                       <h3 className="text-[40px] font-semibold text-head mb-1">
                         1+
                       </h3>
-                      <p className="text-base text-p">
-                        Year of Experience
-                      </p>
+                      <p className="text-base text-p">Year of Experience</p>
                     </div>
                     <div>
                       <h3 className="text-[40px] font-semibold text-head mb-1">
                         5+
                       </h3>
-                      <p className="text-base text-p ">
-                        Project Completed
-                      </p>
+                      <p className="text-base text-p ">Project Completed</p>
                     </div>
                   </div>
                   <div className="relative w-[110px] h-[110px] flex items-center justify-center">

@@ -52,7 +52,7 @@ export function ProfileCard() {
   };
 
   return (
-    <div className="p-6 sticky top-[104px] bg-card rounded-2xl border border-card shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-fit">
+    <div className="p-6 bg-card rounded-2xl border border-card shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-fit">
       {/* Image */}
       <div className="h-[340px] mb-4 rounded-2xl overflow-hidden">
         <Image

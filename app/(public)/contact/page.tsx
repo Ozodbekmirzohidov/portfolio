@@ -56,7 +56,7 @@ export default function Contact() {
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
           {/* Chap — Profile Card */}
-          <div className="w-full">
+          <div className="w-full self-start sticky top-[104px]">
             <ProfileCard />
           </div>
 

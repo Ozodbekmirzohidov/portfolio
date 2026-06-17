@@ -7,7 +7,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen">
       {/* Aylanuvchi fonlar */}
       <div className="fixed inset-0 -z-10">
         {/* Chap */}
