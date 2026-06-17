@@ -151,6 +151,49 @@ const navLinks = [
     ),
   },
   {
+    href: "/certificates",
+    label: "Certificates",
+    icon: (
+      <svg viewBox="0 0 18 18" fill="none" width="18" height="18">
+        <path
+          d="M13 2H5C3.89543 2 3 2.89543 3 4V14C3 15.1046 3.89543 16 5 16H13C14.1046 16 15 15.1046 15 14V4C15 2.89543 14.1046 2 13 2Z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6 6H12"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6 9H12"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6 12H9"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11 14L12.5 15.5L15 13"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
     href: "/contact",
     label: "Contact",
     icon: (

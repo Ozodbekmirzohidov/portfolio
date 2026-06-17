@@ -1,6 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { createServerClient } from "@supabase/ssr";
-import { ISkill, IProject, IBlog, IExperience } from "@/types";
+import { ISkill, IProject, IBlog, IExperience, ICertificate } from "@/types";
 
 // Cookie-siz supabase — faqat public data uchun (RLS yo'q tablalar)
 const supabase = createServerClient(
@@ -55,4 +55,16 @@ export const getExperiences = unstable_cache(
   },
   ["experiences"],
   { revalidate: 100, tags: ["experiences"] },
+);
+
+export const getCertificates = unstable_cache(
+  async (): Promise<ICertificate[]> => {
+    const { data } = await supabase
+      .from("certificates")
+      .select("*")
+      .order("order_index");
+    return data ?? [];
+  },
+  ["certificates"],
+  { revalidate: 100, tags: ["certificates"] },
 );

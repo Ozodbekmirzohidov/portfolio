@@ -48,3 +48,14 @@ export interface IMessage {
   is_read: boolean;
   created_at: string;
 }
+
+export interface ICertificate {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  image: string | null;
+  credential_link: string | null;
+  order_index: number;
+  created_at: string;
+}
