@@ -11,9 +11,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
     <div className="bg-card rounded-2xl border border-border shadow-[0_1px_2px_0_rgba(26,31,44,0.25)] h-full overflow-hidden">
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-2xl font-semibold text-head">
-            Recent Projects
-          </h3>
+          <h3 className="text-2xl font-semibold text-head">Recent Projects</h3>
           <Link
             href="/portfolio"
             className="text-base font-medium text-[#5770FF] border-b border-gray-200 no-underline hover:border-p transition-all"
@@ -27,9 +25,9 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
             <Link
               key={project.id}
               href={project.detail_link ?? "/portfolio"}
-              className="no-underline"
+              className="border border-border rounded-2xl overflow-hidden transition-colors hover:border-[#4770FF] no-underline"
             >
-              <div className="bg-mini-card rounded-lg px-6 pt-6">
+              <div className="bg-mini-card rounded-lg p-2">
                 {project.image && (
                   <Image
                     src={project.image}

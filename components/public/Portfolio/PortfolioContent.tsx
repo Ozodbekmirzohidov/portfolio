@@ -66,7 +66,7 @@ export async function PortfolioContent() {
                             alt={project.title}
                             width={800}
                             height={600}
-                            className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                            className="w-full h-auto block transition-transform duration-300 p-2 pb-0 rounded-2xl"
                           />
                           <Link
                             href={project.image}

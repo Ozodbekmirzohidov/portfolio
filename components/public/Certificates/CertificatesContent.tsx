@@ -42,7 +42,7 @@ export async function CertificatesContent() {
                             alt={cert.title}
                             width={400}
                             height={220}
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 p-2 rounded-2xl bg-mini-card"
                           />
                         </div>
                       )}
