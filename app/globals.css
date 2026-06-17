@@ -40,11 +40,6 @@ html {
   --navbar-hover: #1A1F2C;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  overflow-x: hidden;
-}
 
 @theme {
   --animate-pulse-dot: pulseDot 1.5s infinite;
@@ -58,6 +53,12 @@ body {
   --color-special: var(--special);
   --color-mini-card: var(--mini-card);
   --color-navbar-hover: var(--navbar-hover)
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
 }
 
 @keyframes pulseDot {

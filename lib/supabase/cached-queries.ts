@@ -30,7 +30,7 @@ export const getProjects = unstable_cache(
     return data ?? [];
   },
   ["projects"],
-  { revalidate: 3600, tags: ["projects"] },
+  { revalidate: 100, tags: ["projects"] },
 );
 
 export const getBlogs = unstable_cache(
@@ -42,7 +42,7 @@ export const getBlogs = unstable_cache(
     return data ?? [];
   },
   ["blogs"],
-  { revalidate: 3600, tags: ["blogs"] },
+  { revalidate: 100, tags: ["blogs"] },
 );
 
 export const getExperiences = unstable_cache(
@@ -54,5 +54,5 @@ export const getExperiences = unstable_cache(
     return data ?? [];
   },
   ["experiences"],
-  { revalidate: 3600, tags: ["experiences"] },
+  { revalidate: 100, tags: ["experiences"] },
 );
