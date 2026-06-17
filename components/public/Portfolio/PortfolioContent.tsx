@@ -46,8 +46,10 @@ export async function PortfolioContent() {
                     <span className="text-[#4770FF]">Projects</span>
                   </h1>
                   <p className="max-w-[630px] text-lg font-semibold text-p leading-normal">
-                    Explore some of my recent frontend projects built with
-                    modern technologies and best practices.
+                    Explore a curated collection of my recent frontend
+                    applications. Built with a focus on performance, responsive
+                    design, and clean architecture using modern web
+                    technologies.
                   </p>
                 </div>
 
