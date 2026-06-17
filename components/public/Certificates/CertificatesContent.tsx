@@ -11,7 +11,7 @@ export async function CertificatesContent() {
       <div className="max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[32%_66%] gap-[26px]">
           {/* Chap — Profile Card */}
-          <div className="w-full self-start sticky top-[104px]">
+          <div className="w-full lg:self-start lg:sticky lg:top-[104px]">
             <ProfileCard />
           </div>
 
@@ -29,20 +29,22 @@ export async function CertificatesContent() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div
+                  className={`grid gap-5 ${certificates.length === 1 ? "grid-cols-1" : "grid-cols-2"}`}
+                >
                   {certificates.map((cert) => (
                     <div
                       key={cert.id}
                       className="border border-border rounded-2xl overflow-hidden hover:border-[#4770FF] transition-colors"
                     >
                       {cert.image && (
-                        <div className="overflow-hidden">
+                        <div className="relative w-full overflow-hidden">
                           <Image
                             src={cert.image}
                             alt={cert.title}
-                            width={400}
-                            height={220}
-                            className="w-full h-48 p-2 rounded-2xl bg-mini-card"
+                            width={800}
+                            height={50}
+                            className="w-full h-auto p-2 rounded-2xl bg-mini-card object-cover"
                           />
                         </div>
                       )}

@@ -89,7 +89,7 @@ export async function PortfolioContent() {
                           </Link>
                         </div>
                       )}
-                      <div className="flex items-center justify-between px-5 py-4 gap-4">
+                      <div className="flex-col sm:flex  items-center justify-between px-5 py-4 gap-4">
                         <div>
                           <Link
                             href={project.detail_link ?? "/portfolio"}
