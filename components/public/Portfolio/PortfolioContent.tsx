@@ -57,7 +57,7 @@ export async function PortfolioContent() {
                   {projects.map((project) => (
                     <div
                       key={project.id}
-                      className="border border-border rounded-2xl overflow-hidden transition-colors hover:border-[#4770FF]"
+                      className="border border-border rounded-2xl overflow-hidden transition-colors hover:border-[#4770FF] "
                     >
                       {project.image && (
                         <div className="group relative overflow-hidden">

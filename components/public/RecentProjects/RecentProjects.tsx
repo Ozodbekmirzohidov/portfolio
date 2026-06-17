@@ -29,7 +29,7 @@ export function RecentProjects({ projects }: RecentProjectsProps) {
               href={project.detail_link ?? "/portfolio"}
               className="no-underline"
             >
-              <div className="bg-gray-100 rounded-lg px-6 pt-6">
+              <div className="bg-mini-card rounded-lg px-6 pt-6">
                 {project.image && (
                   <Image
                     src={project.image}
